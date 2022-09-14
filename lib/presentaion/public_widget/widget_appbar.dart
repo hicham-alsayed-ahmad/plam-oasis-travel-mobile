@@ -21,7 +21,10 @@ class Widget_Appbar extends StatelessWidget implements PreferredSizeWidget {
         },
       ),
       actions: [
-        Icon(Icons.shopping_bag),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Icon(Icons.shopping_bag),
+        ),
       ],
       centerTitle: true,
       backgroundColor: Colors.white,

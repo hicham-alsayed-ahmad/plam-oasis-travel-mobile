@@ -31,6 +31,7 @@ class Divider_between_section extends StatelessWidget {
           Text(
             name,
             style: const TextStyle(
+              fontSize: 15,
               fontWeight: FontWeight.bold,
               color: Style.primaryColor,
             ),

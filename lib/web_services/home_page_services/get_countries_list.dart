@@ -5,12 +5,11 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
-import 'package:plam_oasis_travel_mobile/main.dart';
-import 'package:plam_oasis_travel_mobile/web_services/api.dart';
+import 'package:plam_oasis_travel_mobile/models/home_page_models/countries_model.dart';
+import '../../main.dart';
+import '../api.dart';
 
-import '../../models/home_page_models/sliders_model.dart';
-
-Future<Sliders?> getAllBanners() async {
+Future<Countries_Home?> getAllCouyntries() async {
   String fileName = "CacheData.json";
   var cacheDir = await getTemporaryDirectory();
 
@@ -18,16 +17,16 @@ Future<Sliders?> getAllBanners() async {
     print("Loading from cache");
     //TOD0: Reading from the json File
     var jsonData = File(cacheDir.path + "/" + fileName).readAsStringSync();
-    Sliders response = Sliders.fromJson(json.decode(jsonData));
+    Countries_Home response = Countries_Home.fromJson(json.decode(jsonData));
 
     return response;
   } else {
     print("Loading from API");
     var response = await http
-        .get(Uri.parse(API.SlidersHomeAPI), headers: {"locale": lang});
+        .get(Uri.parse(API.CountriesHomeAPI), headers: {"locale": lang});
     if (response.statusCode == 200) {
       var jsonResponse = response.body;
-      Sliders res = Sliders.fromJson(json.decode(jsonResponse));
+      Countries_Home res = Countries_Home.fromJson(json.decode(jsonResponse));
 
       var tempDir = await getTemporaryDirectory();
       File file = new File(tempDir.path + "/" + fileName);
@@ -42,7 +41,7 @@ String frommater(String url) {
   return url;
 }
 
-NetworkImage getIcons(String name) {
+NetworkImage getimagecountries(String name) {
 // ignore: unnecessary_string_interpolations///
   final String url = frommater('$name');
   return NetworkImage(url);

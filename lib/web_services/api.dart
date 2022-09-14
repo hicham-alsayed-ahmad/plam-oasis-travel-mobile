@@ -2,6 +2,8 @@
 
 class API {
   static const String BaseUrl = 'https://palmoasistravel.com';
-  static const String SlidersAPI = '$BaseUrl/new/api/sliders';
-  static const String ServicesAPI = '$BaseUrl/new/api/services';
+  static const String SlidersHomeAPI = '$BaseUrl/new/api/sliders';
+  static const String ServicesHomeAPI = '$BaseUrl/new/api/services';
+  static const String CountriesHomeAPI = '$BaseUrl/new/api/home-countries';
+  static const String PartnersHomeAPI = '$BaseUrl/new/api/partners';
 }

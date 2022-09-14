@@ -2,28 +2,28 @@
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import '../../../models/home_page_models/services_model.dart';
-import '../../../web_services/home_page_services/get_services_list.dart';
+import 'package:plam_oasis_travel_mobile/models/home_page_models/partners_model.dart';
+import 'package:plam_oasis_travel_mobile/web_services/home_page_services/get_partners_list.dart';
 
-class Widget_Services_List extends StatefulWidget {
-  const Widget_Services_List({Key? key}) : super(key: key);
+class Widget_Partners_List extends StatefulWidget {
+  const Widget_Partners_List({Key? key}) : super(key: key);
 
   @override
-  State<Widget_Services_List> createState() => _Widget_Services_ListState();
+  State<Widget_Partners_List> createState() => _Widget_Partners_ListState();
 }
 
-class _Widget_Services_ListState extends State<Widget_Services_List> {
-  late Future<Services?> apiCall;
+class _Widget_Partners_ListState extends State<Widget_Partners_List> {
+  late Future<Partners?> apiCall;
 
   @override
   void initState() {
     super.initState();
-    apiCall = getAllServices();
+    apiCall = getAllPartners();
   }
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<Services?>(
+    return FutureBuilder<Partners?>(
         future: apiCall,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
@@ -58,8 +58,7 @@ class _Widget_Services_ListState extends State<Widget_Services_List> {
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                snapshot.data!.data![itemIndex].title
-                                    .toString(),
+                                snapshot.data!.data![itemIndex].name.toString(),
                                 style: const TextStyle(
                                     fontWeight: FontWeight.bold, fontSize: 15),
                               ),

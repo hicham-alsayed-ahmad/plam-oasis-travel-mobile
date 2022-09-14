@@ -5,8 +5,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
+import 'package:plam_oasis_travel_mobile/main.dart';
 import 'package:plam_oasis_travel_mobile/models/home_page_models/services_model.dart';
-
 import '../api.dart';
 
 Future<Services?> getAllServices() async {
@@ -21,8 +21,11 @@ Future<Services?> getAllServices() async {
 
     return response;
   } else {
+    print(lang);
     print("Loading from API");
-    var response = await http.get(Uri.parse(API.ServicesAPI));
+
+    var response = await http
+        .get(Uri.parse(API.ServicesHomeAPI), headers: {"locale": lang});
     if (response.statusCode == 200) {
       var jsonResponse = response.body;
       Services res = Services.fromJson(json.decode(jsonResponse));
