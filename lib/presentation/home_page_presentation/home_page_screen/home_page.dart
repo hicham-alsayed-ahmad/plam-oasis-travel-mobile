@@ -1,13 +1,15 @@
 // ignore_for_file: sized_box_for_whitespace, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:plam_oasis_travel_mobile/presentaion/home_page_presentaion/home_page_widget/widget_text_intro.dart';
 import '../../../main.dart';
+import '../../public_widget/fab_contact_us.dart';
 import '../../public_widget/widget_appbar.dart';
 import '../../public_widget/widget_drawer.dart';
 import '../home_page_widget/subscribe_to_our_newsletter.dart';
+import '../home_page_widget/widget_footer.dart';
 import '../home_page_widget/widget_home_countries.dart';
 import '../home_page_widget/widget_partners_list.dart';
+import '../home_page_widget/widget_text_intro.dart';
 import '../home_page_widget/widgetr_divider_between_section.dart';
 import '../home_page_widget/widget_services_list.dart';
 import '../home_page_widget/widget_slider_list.dart';
@@ -25,10 +27,10 @@ class _HomeAppState extends State<HomeApp> {
     return Scaffold(
         appBar: const Widget_Appbar(),
         drawer: const Widget_Drawer(),
+        floatingActionButton: ButtonContactUs(),
         body: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            // ignore: prefer_const_literals_to_create_immutables
             children: [
               Widget_Slider_list(),
               Widget_Text_Intro(),
@@ -46,6 +48,7 @@ class _HomeAppState extends State<HomeApp> {
                       ? "اشترك في نشرتنا الاخبارية"
                       : "Subscribe to our newsletter"),
               Subscribe_To_Our_Newsletter(),
+              Widget_Footer(),
             ],
           ),
         ));

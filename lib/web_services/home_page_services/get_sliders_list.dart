@@ -1,40 +1,21 @@
 // ignore_for_file: body_might_complete_normally_nullable, prefer_interpolation_to_compose_strings, unnecessary_new, avoid_print, unnecessary_string_interpolations
 
 import 'dart:convert';
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:path_provider/path_provider.dart';
 import 'package:plam_oasis_travel_mobile/main.dart';
-import 'package:plam_oasis_travel_mobile/web_services/api.dart';
+import 'package:plam_oasis_travel_mobile/web_services/public_services/api.dart';
 
 import '../../models/home_page_models/sliders_model.dart';
 
 Future<Sliders?> getAllBanners() async {
-  String fileName = "CacheData.json";
-  var cacheDir = await getTemporaryDirectory();
+  var response =
+      await http.get(Uri.parse(API.SlidersHomeAPI), headers: {"locale": lang});
+  if (response.statusCode == 200) {
+    var jsonResponse = response.body;
+    Sliders res = Sliders.fromJson(json.decode(jsonResponse));
 
-  if (await File(cacheDir.path + "/" + fileName).exists()) {
-    print("Loading from cache");
-    //TOD0: Reading from the json File
-    var jsonData = File(cacheDir.path + "/" + fileName).readAsStringSync();
-    Sliders response = Sliders.fromJson(json.decode(jsonData));
-
-    return response;
-  } else {
-    print("Loading from API");
-    var response = await http
-        .get(Uri.parse(API.SlidersHomeAPI), headers: {"locale": lang});
-    if (response.statusCode == 200) {
-      var jsonResponse = response.body;
-      Sliders res = Sliders.fromJson(json.decode(jsonResponse));
-
-      var tempDir = await getTemporaryDirectory();
-      File file = new File(tempDir.path + "/" + fileName);
-      file.writeAsString(jsonResponse, flush: true, mode: FileMode.write);
-
-      return res;
-    }
+    return res;
   }
 }
 

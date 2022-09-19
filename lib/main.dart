@@ -1,6 +1,6 @@
 import 'package:devicelocale/devicelocale.dart';
 import 'package:flutter/material.dart';
-import 'presentaion/home_page_presentaion/home_page_screen/home_page.dart';
+import 'presentation/home_page_presentation/home_page_screen/home_page.dart';
 
 String lang = "ar";
 void main() async {

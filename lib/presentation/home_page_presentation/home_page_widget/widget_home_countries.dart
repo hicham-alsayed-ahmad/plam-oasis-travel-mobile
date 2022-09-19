@@ -38,21 +38,19 @@ class _Widget_Countries_ListState extends State<Widget_Countries_List> {
                     itemBuilder: (BuildContext context, int itemIndex,
                         int pageViewIndex) {
                       return Column(children: [
-                        ClipRRect(
-                            borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(10),
-                                topRight: Radius.circular(10)),
-                            child: Image.asset('assets/images/countries.jpg')
-                            // Container(
-                            //   decoration: BoxDecoration(
-                            //       image: DecorationImage(
-                            //           image: getimagecountries(snapshot
-                            //               .data!.data![itemIndex].image
-                            //               .toString()),
-                            //           fit: BoxFit.fill)),
-                            //   width: MediaQuery.of(context).size.width,
-                            // ),
-                            ),
+                        Container(
+                          height: MediaQuery.of(context).size.height / 4,
+                          width: MediaQuery.of(context).size.width,
+                          decoration: BoxDecoration(
+                              borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(10),
+                                  topRight: Radius.circular(10)),
+                              image: DecorationImage(
+                                  image: getimagecountries(snapshot
+                                      .data!.data![itemIndex].image
+                                      .toString()),
+                                  fit: BoxFit.fill)),
+                        ),
                         Container(
                           color: Colors.white.withOpacity(1.0),
                           child: Row(
@@ -80,7 +78,7 @@ class _Widget_Countries_ListState extends State<Widget_Countries_List> {
                                         width: 10,
                                       ),
                                       Text(
-                                        'dirhams  ',
+                                        'AED  ',
                                       ),
                                     ],
                                   ),
@@ -92,13 +90,13 @@ class _Widget_Countries_ListState extends State<Widget_Countries_List> {
                       ]);
                     },
                     options: CarouselOptions(
-                      height: 280,
+                      height: 300,
                       aspectRatio: 16 / 9,
                       viewportFraction: 0.8,
                       initialPage: 0,
                       enableInfiniteScroll: true,
                       reverse: false,
-                      autoPlay: true,
+                      autoPlay: false,
                       autoPlayInterval: Duration(seconds: 4),
                       autoPlayAnimationDuration: Duration(milliseconds: 800),
                       autoPlayCurve: Curves.fastOutSlowIn,

@@ -6,4 +6,7 @@ class API {
   static const String ServicesHomeAPI = '$BaseUrl/new/api/services';
   static const String CountriesHomeAPI = '$BaseUrl/new/api/home-countries';
   static const String PartnersHomeAPI = '$BaseUrl/new/api/partners';
+  static const String GeneralInformaitionAPI =
+      '$BaseUrl/new/api/static-data/general-info';
+  static const String AddUserNewsLettwr = '$BaseUrl/new/api/set-newsletter';
 }
