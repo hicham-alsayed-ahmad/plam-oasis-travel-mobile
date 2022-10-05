@@ -1,6 +1,6 @@
 import 'package:devicelocale/devicelocale.dart';
 import 'package:flutter/material.dart';
-import 'presentation/home_page_presentation/home_page_screen/home_page.dart';
+import 'presentation/routs/app_routs.dart';
 
 String lang = "ar";
 void main() async {
@@ -26,7 +26,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
-      home: const HomeApp(),
+      onGenerateRoute: AppRouter().onGenerateRoute,
     );
   }
 }

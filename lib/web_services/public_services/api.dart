@@ -1,6 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
 class API {
+  //Home Page Api//
   static const String BaseUrl = 'https://palmoasistravel.com';
   static const String SlidersHomeAPI = '$BaseUrl/new/api/sliders';
   static const String ServicesHomeAPI = '$BaseUrl/new/api/services';
@@ -9,4 +10,7 @@ class API {
   static const String GeneralInformaitionAPI =
       '$BaseUrl/new/api/static-data/general-info';
   static const String AddUserNewsLettwr = '$BaseUrl/new/api/set-newsletter';
+
+  //Packages Api//
+  static const String CountriesList = '$BaseUrl/new/api/countries';
 }

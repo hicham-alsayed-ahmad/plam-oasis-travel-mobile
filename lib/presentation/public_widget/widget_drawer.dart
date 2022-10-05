@@ -16,8 +16,25 @@ class _Widget_DrawerState extends State<Widget_Drawer> {
       child: Container(
         color: Colors.white,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [],
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Container(
+              height: 50,
+              color: Colors.amber,
+            ),
+            ListTile(
+              title: Text('Homp Page'),
+              onTap: (() {
+                Navigator.of(context).pushNamed('/');
+              }),
+            ),
+            ListTile(
+              title: Text('Holidays'),
+              onTap: (() {
+                Navigator.of(context).pushNamed('/holidays');
+              }),
+            )
+          ],
         ),
       ),
     );
